@@ -2,5 +2,7 @@
     "Roles": true,
     "Users": true,
     "Settings": true,
-    "Sales": true
+    "Sales": true,
+    "Devices": true,
+    "Guide": true
 }

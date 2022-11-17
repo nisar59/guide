@@ -15,15 +15,7 @@ function AllPermissions()
 	$role=[];
 	$role['users']=['view','add','edit','delete'];
 	$role['permissions']=['view','add','edit','delete'];
-	$role['contacts']=['view','add','edit','delete'];
-	$role['category']=['view','add','edit','delete'];
-	$role['units']=['view','add','edit','delete'];
-	$role['warehousesandshops']=['view','add','edit','delete'];
-	$role['products']=['view','add','edit','delete'];
-	$role['purchases']=['view','add','edit','delete'];
-	$role['stocktransfer']=['view','add','edit','delete'];
-	$role['expenses']=['view','add','edit','delete'];
-	$role['sales']=['view','add','edit','delete'];
+	$role['devices']=['view','add','edit','delete'];
 	$role['settings']=['view','add','edit','delete'];
 
 

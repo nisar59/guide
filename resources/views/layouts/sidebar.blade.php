@@ -29,6 +29,12 @@ $type=Request()->type;
           @endcan
         </ul>
       </li>
+      @can('devices.view')
+      <li class="menu-header">Devices & Guide</li>
+      <li class="dropdown @if($pref=='/devices') active @endif">
+        <a href="{{url('devices')}}" class="nav-link"><i class="fas fas fa-mobile-alt"></i><span>Devices & Guide</span></a>
+      </li>
+      @endcan
       @can('settings.view')
       <li class="menu-header">Panel Settings</li>
       <li class="dropdown @if($pref=='/settings') active @endif">
