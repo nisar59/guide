@@ -48,10 +48,19 @@
 
                </div>
                
-                        
+               <div class="btn-group me-3 float-end" role="group">
+                 <a href="{{url('devices-guide/'.$id)}}" class="btn btn-primary btn-icon" title="Back"  >
+                    <i class="la la-angle-double-left"></i> <span >back</span>
+                 </a>
+               </div>          
                <div class="btn-group me-3 float-end" role="group">
                  <button class="btn btn-primary btn-icon" title="Export (Ctrl + E)" id="save-btn" data-vvveb-action="saveAjax" data-vvveb-url="{{url('devices-guide/store/'.$id)}}" data-v-vvveb-shortcut="ctrl+e">
                     <i class="la la-save"></i> <span data-v-gettext>Save page</span>
+                 </button>
+               </div>   
+               <div class="btn-group me-3 float-end" role="group">
+                 <button class="btn btn-primary btn-icon"data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="la la-photo-video"></i><span>Media</span>
                  </button>
                </div>   
 
@@ -1480,6 +1489,11 @@
 
   </div>
 </div>
+
+<!-- Media Modal -->
+@include('guide::media-modal', $media)
+
+
 </div>
  
 @include('layouts.editor-js')

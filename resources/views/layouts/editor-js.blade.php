@@ -85,7 +85,34 @@ Unzip the latest ckeditor release zip from https://github.com/ckeditor/ckeditor4
 <script src="{{asset('editor/libs/jszip/jszip.min.js')}}"></script>
 <script src="{{asset('editor/libs/jszip/filesaver.min.js')}}"></script>
 <script src="{{asset('editor/libs/builder/plugin-jszip.js')}}"></script>
+  <script src="{{asset('assets/bundles/izitoast/js/iziToast.min.js')}}"></script>
 
 
 <!-- autocomplete plugin used by autocomplete input-->
 <script src="{{asset('editor/libs/autocomplete/jquery.autocomplete.js')}}"></script>  
+
+<script type="text/javascript">
+function success(msg='',title='Good Job!',pos='topRight' ) {
+var success=document.getElementById("success");
+  iziToast.success({
+    title: title,
+    message: msg,
+    position: pos
+  });
+
+}
+
+$(document).ready(function() {
+
+	$(document).on('click', '.copy', function() {
+	var txt=$(this).data('copy');
+	console.log(txt);
+	navigator.clipboard.writeText(txt);
+	success("URL Copied!");
+
+	$("#exampleModal").modal('hide');
+
+	});
+
+});
+</script>

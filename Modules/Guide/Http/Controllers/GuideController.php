@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Devices\Entities\Devices;
 use Modules\Guide\Entities\Guide;
+use Modules\Media\Entities\Media;
+
 class GuideController extends Controller
 {
     /**
@@ -15,8 +17,13 @@ class GuideController extends Controller
      */
     public function index($id)
     {
-        $data['device']=Devices::find($id);
-        return view('guide::index')->with($data);
+        $device=Devices::with('devicesguide')->find($id);
+
+        if($device->devicesguide==null){
+            return redirect('devices-guide/'.$id.'/create');
+        }
+
+        return view('guide::index')->withDevice($device);
     }
 
     public function getfile($id)
@@ -75,7 +82,8 @@ class GuideController extends Controller
      */
     public function create(Request $req, $id)
     {
-        return view('guide::create')->withId($id);
+        $media=Media::all();
+        return view('guide::create')->withId($id)->withMedia($media);
     }
 
     /**

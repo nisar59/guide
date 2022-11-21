@@ -4,6 +4,7 @@ namespace Modules\Devices\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Guide\Entities\Guide;
 
 class Devices extends Model
 {
@@ -16,4 +17,11 @@ class Devices extends Model
     {
         return \Modules\Devices\Database\factories\DevicesFactory::new();
     }
+
+    public function devicesguide()
+    {
+        return $this->hasOne(Guide::class, 'devices_id');
+    }
+
+
 }
