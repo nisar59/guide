@@ -15,6 +15,7 @@ function AllPermissions()
 	$role=[];
 	$role['users']=['view','add','edit','delete'];
 	$role['permissions']=['view','add','edit','delete'];
+	$role['media']=['view','add','edit','delete'];
 	$role['devices']=['view','add','edit','delete'];
 	$role['settings']=['view','add','edit','delete'];
 

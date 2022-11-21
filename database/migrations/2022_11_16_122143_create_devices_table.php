@@ -16,6 +16,7 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->text('name')->nullable();
+            $table->text('slug')->nullable();
             $table->text('image')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();

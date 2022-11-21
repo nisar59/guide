@@ -15,6 +15,8 @@ class CreateGuideTable extends Migration
     {
         Schema::create('guide', function (Blueprint $table) {
             $table->id();
+            $table->integer('devices_id')->nullable();
+            $table->longText('html')->nullable();
             $table->timestamps();
         });
     }

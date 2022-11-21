@@ -56,7 +56,6 @@ class SettingsController extends Controller
         $settings=Settings::firstOrNew(['id'=>1]);
         $settings->portal_name=$req->panel_name;
         $settings->portal_email=$req->panel_email;
-        $settings->inventory_expire_time=$req->inventory_expire_time;
         $settings->portal_logo=$portal_logo;
         $settings->portal_favicon=$portal_favicon;
 

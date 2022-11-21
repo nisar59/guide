@@ -13,12 +13,13 @@
 
 
 Route::group(['prefix'=>'devices-guide','middleware' => ['permission:devices-guide.view']],function(){
-    Route::get('/{id}', 'GuideController@index');
+    Route::get('/get-file/{id}', 'GuideController@getfile');
+    Route::get('/{id}', 'GuideController@index');    
 });
 
 Route::group(['prefix'=>'devices-guide','middleware' => ['permission:devices-guide.add']],function(){
     Route::get('{id}/create', 'GuideController@create');
-    Route::POST('{id}/store', 'GuideController@store');
+    Route::POST('/store/{id}', 'GuideController@store');
 
 });
 Route::group(['prefix'=>'devices-guide','middleware' => ['permission:devices-guide.edit']],function(){

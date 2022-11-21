@@ -29,10 +29,18 @@ $type=Request()->type;
           @endcan
         </ul>
       </li>
+
+      @can('media.view')
+      <li class="menu-header">Media</li>
+      <li class="dropdown @if($pref=='/media') active @endif">
+        <a href="{{url('media')}}" class="nav-link"><i class="fas fa-camera-retro"></i><span>Media</span></a>
+      </li>
+      @endcan
+
       @can('devices.view')
       <li class="menu-header">Devices & Guide</li>
       <li class="dropdown @if($pref=='/devices') active @endif">
-        <a href="{{url('devices')}}" class="nav-link"><i class="fas fas fa-mobile-alt"></i><span>Devices & Guide</span></a>
+        <a href="{{url('devices')}}" class="nav-link"><i class="fas  fa-mobile-alt"></i><span>Devices & Guide</span></a>
       </li>
       @endcan
       @can('settings.view')

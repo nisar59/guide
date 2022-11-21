@@ -116,7 +116,15 @@
   });
 
 
+$(document).on('click', '.copy', function() {
 
+var txt=$(this).data('copy');
+console.log(txt);
+navigator.clipboard.writeText(txt);
+
+success("URL Copied!");
+
+});
 
 
 

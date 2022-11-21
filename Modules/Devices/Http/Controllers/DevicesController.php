@@ -16,7 +16,7 @@ class DevicesController extends Controller
      */
     public function index()
     {
-    if (request()->ajax()) {
+        if (request()->ajax()) {
         $devices=Devices::orderBy('id','ASC')->get();
             return DataTables::of($devices)
                 ->addColumn('action', function ($row) {
@@ -66,7 +66,7 @@ class DevicesController extends Controller
                 })
                 ->rawColumns(['image','status','action','guide'])
                 ->make(true);
-    }
+        }
 
 
 
