@@ -10,6 +10,44 @@
 .dropdown-toggle::after{
 	content: none;
 }
+
+.devices a{
+	height:200px;
+	position: relative;
+}
+
+.devices a .device-text{
+	visibility: hidden;
+	opacity: 0;
+    height: 100%;
+    width: calc(100% - 22px);
+    position: absolute;
+    z-index: 11;
+	-webkit-transition: visibility 0s, opacity 1s ease-out;
+  	-moz-transition: visibility 0s, opacity 1s ease-out;
+  	-o-transition: visibility 0s, opacity 1s ease-out;
+  	transition: visibility 0s, opacity 1s ease-out;
+}
+.devices a .device-text span{
+	display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;    
+
+}
+.devices a:hover .device-text{
+	visibility: visible;
+	opacity: 1;
+	background-color: #adb5bd;
+}
+
+.devices a .device-bg{ 
+ 	height: 100%;
+}
+
 </style>
 
 </head>

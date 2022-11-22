@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Modules\Devices\Entities\Devices;
 use Carbon;
 use Auth;
 class HomeController extends Controller
@@ -28,4 +29,16 @@ class HomeController extends Controller
         return view('home');
 
     }
+
+    public function home()
+    {
+        return view('frontend.home');
+    }
+    public function guide($slug)
+    {
+        $guide=Devices::with('devicesguide')->where('slug', $slug)->first();
+
+        return view('frontend.guide')->withGuide($guide);
+    }
+
 }

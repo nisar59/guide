@@ -37,6 +37,7 @@ class SettingsController extends Controller
 
         $portal_logo=null;
         $portal_favicon=null;
+        $banner=null;
         $path=public_path('img/settings/');
 
         $sett=Settings::first();
@@ -44,20 +45,26 @@ class SettingsController extends Controller
         if($sett!=null){
             $portal_logo=$sett->portal_logo;
             $portal_favicon=$sett->portal_favicon;
+            $banner=$sett->banner;
         }
 
         if($req->file('panel_logo')!=null){
             $portal_logo=FileUpload($req->file('panel_logo'), $path);
         }
+
         if($req->file('panel_favicon')!=null){
             $portal_favicon=FileUpload($req->file('panel_favicon'), $path);
         }
-
+        if($req->file('banner')!=null){
+            $banner=FileUpload($req->file('banner'), $path);
+        }
         $settings=Settings::firstOrNew(['id'=>1]);
         $settings->portal_name=$req->panel_name;
         $settings->portal_email=$req->panel_email;
         $settings->portal_logo=$portal_logo;
         $settings->portal_favicon=$portal_favicon;
+        $settings->banner=$banner;
+        $settings->banner_text=$req->banner_text;
 
         if($settings->save()){
             return redirect()->back()->with('success', 'Panel settings successfully saved');

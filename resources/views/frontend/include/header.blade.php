@@ -9,7 +9,9 @@
           	<i class="fa-sharp fa-solid fa-bars fa-2xl"></i>
           </a>
         <ul class="dropdown-menu text-small shadow" style="">
-          <li><a class="dropdown-item" href="#" aria-current="page">Overview</a></li>
+          @foreach(AllDevices() as $device)
+          <li><a class="dropdown-item" href="{{url('guide/'.$device->slug)}}" aria-current="page">{{$device->name}}</a></li>
+          @endforeach
         </ul>
       </div>
         <form class="w-100 me-3 d-flex align-items-center" role="search">

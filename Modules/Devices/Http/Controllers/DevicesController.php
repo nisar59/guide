@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Devices\Entities\Devices;
 use Yajra\DataTables\Facades\DataTables;
 use Auth;
+use Str;
 class DevicesController extends Controller
 {
     /**
@@ -90,13 +91,14 @@ class DevicesController extends Controller
     public function store(Request $req)
     {
         $req->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required','unique:devices,name',],
         ]);
 
         $path=public_path('img/devices');
 
         $device=Devices::create([
             'name' => $req->name,
+            'slug'=>Str::slug($req->name),
             'image'=>FileUpload($req->file('image'), $path)
         ]);
         if($device){
@@ -137,7 +139,7 @@ class DevicesController extends Controller
     public function update(Request $req, $id)
     {
         $req->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'unique:devices,name,'.$id],
         ]);
 
         $path=public_path('img/devices');
@@ -145,6 +147,7 @@ class DevicesController extends Controller
         $device=Devices::find($id);
 
         $device->name=$req->name;
+        $device->slug=Str::slug($req->name);
 
         if($req->hasFile('image')){
             $device->image=FileUpload($req->file('image'), $path);

@@ -11,6 +11,7 @@ Settings
 
             $logo=url('public/img/images.png');
             $favicon=url('public/img/images.png');
+            $banner=url('public/img/images.png');
 
             if($sett->portal_logo!='' AND file_exists(public_path('img/settings/'.$sett->portal_logo))){
               $logo=url('public/img/settings/'.$sett->portal_logo);
@@ -18,6 +19,10 @@ Settings
 
             if($sett->portal_favicon!='' AND file_exists(public_path('img/settings/'.$sett->portal_favicon))){
               $favicon=url('public/img/settings/'.$sett->portal_favicon);
+            }
+
+            if($sett->banner!='' AND file_exists(public_path('img/settings/'.$sett->banner))){
+              $banner=url('public/img/settings/'.$sett->banner);
             }
             @endphp
 
@@ -57,6 +62,21 @@ Settings
                     </div>
                     <div class="form-group col-md-2">
                       <img src="{{$favicon}}" class="image-display" id="favicon-display" width="100" height="100">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-10">
+                      <label>Panel Banner</label>
+                      <input type="file" class="form-control" name="banner" id="banner" onchange="document.getElementById('banner-display').src = window.URL.createObjectURL(this.files[0])">
+                    </div>
+                    <div class="form-group col-md-2">
+                      <img src="{{$banner}}" class="image-display" id="banner-display" width="100" height="100">
+                    </div>
+                  </div>
+                    <div class="row">
+                    <div class="form-group col-md-12">
+                      <label>Panel Banner Text</label>
+                      <input type="text" class="form-control" name="banner_text" value="{{$sett->banner_text}}" placeholder="Panel Banner Text">
                     </div>
                   </div>
                 </div>

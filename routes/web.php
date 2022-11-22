@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.include.template');
-});
+Route::get('/', 'HomeController@home');
+Route::get('/guide/{slug}', 'HomeController@guide');
 
 Auth::routes();
 Route::any('logout', 'Auth\LoginController@logout');

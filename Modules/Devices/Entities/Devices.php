@@ -11,7 +11,7 @@ class Devices extends Model
     use HasFactory;
 
     protected $table='devices';
-    protected $fillable = ['name','image','status'];
+    protected $fillable = ['name','slug','image','status'];
     
     protected static function newFactory()
     {
