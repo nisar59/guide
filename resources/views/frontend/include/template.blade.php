@@ -6,6 +6,7 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
+    	<h1 style="position:absolute; z-index: 11; top: 50%;left: 50%;transform: translate(-50%, -50%); color: white; text-align: center;">Welcom to Devices Help</h1>
       <img class="d-block w-100" src="https://deviceguides.vodafone.co.uk/Content/images/design_assets/top_banner_uk_full.jpg" alt="First slide">
     </div>
   </div>
@@ -13,7 +14,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center p-3">
-			<h2>Welcome to device help</h2>
+			<h2>Choose a Guide</h2>
 		</div>
 	</div>	
 	<div class="row">

@@ -1,15 +1,19 @@
-<nav class="navbar bg-light" aria-label="Light offcanvas navbar">
-	<div class="container">
-		<a class="navbar-brand" href="#"><img src="{{url('public/img/settings/'.Settings()->portal_logo)}}" width="70" height="70"></a>
-		<div class="dropdown">
-			<button class="dropdown-toggle navbar-toggler" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<li><a class="dropdown-item" href="#">Action</a></li>
-				<li><a class="dropdown-item" href="#">Another action</a></li>
-				<li><a class="dropdown-item" href="#">Something else here</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<header class="container py-3">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="dropdown d-flex align-items-center col-lg-4">
+        <a href="{{url('/')}}" class=" mb-2 mb-lg-0  text-decoration-none">
+          <img src="{{url('public/img/settings/'.Settings()->portal_logo)}}" width="70" height="70">
+
+        </a>          
+        <a href="javascript:void(0)" class="dropdown-toggle link-dark" data-bs-toggle="dropdown" aria-expanded="false">
+          	<i class="fa-sharp fa-solid fa-bars fa-2xl"></i>
+          </a>
+        <ul class="dropdown-menu text-small shadow" style="">
+          <li><a class="dropdown-item" href="#" aria-current="page">Overview</a></li>
+        </ul>
+      </div>
+        <form class="w-100 me-3 d-flex align-items-center" role="search">
+          <input type="search" id="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+    </div>
+  </header>
