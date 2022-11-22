@@ -10,7 +10,7 @@
           </a>
         <ul class="dropdown-menu text-small shadow" style="">
           @foreach(AllDevices() as $device)
-          <li><a class="dropdown-item" href="{{url('guide/'.$device->slug)}}" aria-current="page">{{$device->name}}</a></li>
+          <li class="border-bottom"><a class="dropdown-item" href="{{url('guide/'.$device->slug)}}" aria-current="page">{{$device->name}}</a></li>
           @endforeach
         </ul>
       </div>

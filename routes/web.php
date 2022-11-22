@@ -17,5 +17,8 @@ Route::get('/', 'HomeController@home');
 Route::get('/guide/{slug}', 'HomeController@guide');
 
 Auth::routes();
+Route::group(['middleware'=>'auth'],function()
+{
 Route::any('logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
+});
