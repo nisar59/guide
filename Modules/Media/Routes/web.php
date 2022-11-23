@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix'=>'media','middleware' => ['permission:media.view']],function(){
+Route::group(['prefix'=>'all-media','middleware' => ['permission:media.view']],function(){
     Route::get('/', 'MediaController@index');
     Route::get('/scan', 'MediaController@scan');
 });

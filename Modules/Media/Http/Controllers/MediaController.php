@@ -148,10 +148,10 @@ class MediaController extends Controller
                 return $media->name;
             }
 
-            return redirect('media')->with('success', 'Media successfully created');
+            return redirect('all-media')->with('success', 'Media successfully created');
         }  
         else{
-            return redirect('media')->with('error', 'Something went wrong');
+            return redirect('all-media')->with('error', 'Something went wrong');
         } 
 
     }
@@ -197,10 +197,10 @@ class MediaController extends Controller
         $media=Media::find($id);
         unlink($media->path);
         if($media->delete()){
-            return redirect('media')->with('success', 'Media successfully deleted');
+            return redirect('all-media')->with('success', 'Media successfully deleted');
         }  
         else{
-            return redirect('media')->with('error', 'Something went wrong');
+            return redirect('all-media')->with('error', 'Something went wrong');
         } 
 
     }

@@ -43,7 +43,7 @@ Media
   var roles_table = $('#users').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{url('media')}}",
+              ajax: "{{url('all-media')}}",
               buttons:[],
               columns: [
                 {data: 'title', name: 'title'},

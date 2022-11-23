@@ -32,8 +32,8 @@ $type=Request()->type;
 
       @can('media.view')
       <li class="menu-header">Media</li>
-      <li class="dropdown @if($pref=='/media') active @endif">
-        <a href="{{url('media')}}" class="nav-link"><i class="fas fa-camera-retro"></i><span>Media</span></a>
+      <li class="dropdown @if($pref=='/all-media') active @endif">
+        <a href="{{url('all-media')}}" class="nav-link"><i class="fas fa-camera-retro"></i><span>Media</span></a>
       </li>
       @endcan
 

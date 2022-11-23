@@ -21,7 +21,7 @@
 var token="{{csrf_token()}}";
 window.mediaPath = '{{asset("media")}}';
 var upload_url="{{url('media/store')}}";
-var scan_url="{{url('media/scan')}}";
+var scan_url="{{url('all-media/scan')}}";
 //Vvveb.themeBaseUrl = 'demo/landing/';
 </script>
 <script src="{{asset('editor/libs/media/media.js')}}"></script>  
