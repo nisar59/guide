@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+dd('ok');
 Route::group(['prefix'=>'media','middleware' => ['permission:media.view']],function(){
     Route::get('/', 'MediaController@index');
     Route::get('/scan', 'MediaController@scan');
