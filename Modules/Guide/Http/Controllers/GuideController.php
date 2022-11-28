@@ -26,55 +26,6 @@ class GuideController extends Controller
         return view('guide::index')->withDevice($device);
     }
 
-    public function getfile($id)
-    {
-        $first_portaion='<!DOCTYPE html>
-                <html lang="en">
-                  <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                    <meta name="description" content="">
-                    <meta name="author" content="">
-                    <title>My page</title>
-                    <!-- Bootstrap core CSS -->
-                    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-                    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-                    <style>
-                        html, body
-                        {
-                            width:100%;
-                            height:100%;
-                        }
-                    </style>
-                  </head>
-                  <body>';
-
-        $last_portaion='</body></html>';
-
-
-        $get_file=Guide::where('devices_id',$id)->first();
-        $html='';
-
-        if($get_file!=null){
-            $html.=$get_file->html;
-        }
-        else{
-            $html.='
-                    <!-- Page Content -->
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-lg-12 text-center">
-                          <h1 class="mt-5">Bootstrap 4 start page</h1>
-                          <p class="lead">Start by dragging components to page or double click to edit text</p>
-                        </div>
-                      </div>
-                    </div>
-                ';
-        }
-        
-        return $first_portaion.$html.$last_portaion;
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -83,7 +34,8 @@ class GuideController extends Controller
     public function create(Request $req, $id)
     {
         $media=Media::all();
-        return view('guide::create')->withId($id)->withMedia($media);
+        $guide=Devices::with('devicesguide')->find($id);
+        return view('guide::create')->withGuide($guide)->withMedia($media);
     }
 
     /**
@@ -98,7 +50,7 @@ class GuideController extends Controller
         $guide->html=$req->html;
 
         if($guide->save()){
-            return "File saved successfully";
+            return redirect()->back()->with('success', "Guide saved successfully");
         }
 
     }
